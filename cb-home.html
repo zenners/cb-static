@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Carbids.ph | Carbids.ph | Home v.1</title>
+    <!-- SEO Meta Tags-->
+    <meta name="description" content="Finder - Directory &amp; Listings Bootstrap Template">
+    <meta name="keywords" content="bootstrap, business, directory, listings, e-commerce, car dealer, city guide, real estate, job board, user account, multipurpose, ui kit, html5, css3, javascript, gallery, slider, touch">
+    <meta name="author" content="Createx Studio">
+    <!-- Viewport-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Favicon and Touch Icons-->
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="manifest" href="site.webmanifest">
+    <link rel="mask-icon" color="#5bbad5" href="safari-pinned-tab.svg">
+    <meta name="msapplication-TileColor" content="#766df4">
+    <meta name="theme-color" content="#ffffff">
+    <!-- Page loading styles-->
+    <style>
+      .page-loading {
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        -webkit-transition: all .4s .2s ease-in-out;
+        transition: all .4s .2s ease-in-out;
+        background-color: #fff;
+        opacity: 0;
+        visibility: hidden;
+        z-index: 9999;
+      }
+      .page-loading.active {
+        opacity: 1;
+        visibility: visible;
+      }
+      .page-loading-inner {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        width: 100%;
+        text-align: center;
+        -webkit-transform: translateY(-50%);
+        transform: translateY(-50%);
+        -webkit-transition: opacity .2s ease-in-out;
+        transition: opacity .2s ease-in-out;
+        opacity: 0;
+      }
+      .page-loading.active > .page-loading-inner {
+        opacity: 1;
+      }
+      .page-loading-inner > span {
+        display: block;
+        font-size: 1rem;
+        font-weight: normal;
+        color: #666276;;
+      }
+      .page-spinner {
+        display: inline-block;
+        width: 2.75rem;
+        height: 2.75rem;
+        margin-bottom: .75rem;
+        vertical-align: text-bottom;
+        border: .15em solid #bbb7c5;
+        border-right-color: transparent;
+        border-radius: 50%;
+        -webkit-animation: spinner .75s linear infinite;
+        animation: spinner .75s linear infinite;
+      }
+      @-webkit-keyframes spinner {
+        100% {
+          -webkit-transform: rotate(360deg);
+          transform: rotate(360deg);
+        }
+      }
+      @keyframes spinner {
+        100% {
+          -webkit-transform: rotate(360deg);
+          transform: rotate(360deg);
+        }
+      }
+      
+    </style>
+    <!-- Page loading scripts-->
+    <script>
+      (function () {
+        window.onload = function () {
+          var preloader = document.querySelector('.page-loading');
+          preloader.classList.remove('active');
+          setTimeout(function () {
+            preloader.remove();
+          }, 2000);
+        };
+      })();
+      
+    </script>
+    <!-- Vendor Styles-->
+    <link rel="stylesheet" media="screen" href="vendor/simplebar/dist/simplebar.min.css"/>
+    <link rel="stylesheet" media="screen" href="vendor/nouislider/dist/nouislider.min.css"/>
+    <link rel="stylesheet" media="screen" href="vendor/tiny-slider/dist/tiny-slider.css"/>
+    <!-- Main Theme Styles + Bootstrap-->
+    <link rel="stylesheet" media="screen" href="css/theme.min.css">
+  </head>
+  <!-- Body-->
+  <body>
+    <!-- Page loading spinner-->
+    <div class="page-loading active">
+      <div class="page-loading-inner">
+        <div class="page-spinner"></div><span>Loading...</span>
+      </div>
+    </div>
+    <main class="page-wrapper">
+      <!-- Sign In Modal-->
+      <div class="modal fade" id="signin-modal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered p-2 my-0 mx-auto" style="max-width: 950px;">
+          <div class="modal-content">
+            <div class="modal-body px-0 py-2 py-sm-0">
+              <button class="btn-close position-absolute top-0 end-0 mt-3 me-3" type="button" data-bs-dismiss="modal"></button>
+              <div class="row mx-0 align-items-center">
+                <div class="col-md-6 border-end-md p-4 p-sm-5">
+                  <h2 class="h3 mb-4 mb-sm-5">Hey there!<br>Welcome back.</h2><img class="d-block mx-auto" src="img/signin-modal/signin.svg" width="344" alt="Illustartion">
+                  <div class="mt-4 mt-sm-5">Don't have an account? <a href="#signup-modal" data-bs-toggle="modal" data-bs-dismiss="modal">Sign up here</a></div>
+                </div>
+                <div class="col-md-6 px-4 pt-2 pb-4 px-sm-5 pb-sm-5 pt-md-5"><a class="btn btn-outline-info w-100 mb-3" href="#"><i class="fi-google fs-lg me-1"></i>Sign in with Google</a><a class="btn btn-outline-info w-100 mb-3" href="#"><i class="fi-facebook fs-lg me-1"></i>Sign in with Facebook</a>
+                  <div class="d-flex align-items-center py-3 mb-3">
+                    <hr class="w-100">
+                    <div class="px-3">Or</div>
+                    <hr class="w-100">
+                  </div>
+                  <form class="needs-validation" novalidate>
+                    <div class="mb-4">
+                      <label class="form-label mb-2" for="signin-email">Email address</label>
+                      <input class="form-control" type="email" id="signin-email" placeholder="Enter your email" required>
+                    </div>
+                    <div class="mb-4">
+                      <div class="d-flex align-items-center justify-content-between mb-2">
+                        <label class="form-label mb-0" for="signin-password">Password</label><a class="fs-sm" href="#">Forgot password?</a>
+                      </div>
+                      <div class="password-toggle">
+                        <input class="form-control" type="password" id="signin-password" placeholder="Enter password" required>
+                        <label class="password-toggle-btn" aria-label="Show/hide password">
+                          <input class="password-toggle-check" type="checkbox"><span class="password-toggle-indicator"></span>
+                        </label>
+                      </div>
+                    </div>
+                    <button class="btn btn-primary btn-lg w-100" type="submit">Sign in         </button>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Sign Up Modal-->
+      <div class="modal fade" id="signup-modal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered p-2 my-0 mx-auto" style="max-width: 950px;">
+          <div class="modal-content">
+            <div class="modal-body px-0 py-2 py-sm-0">
+              <button class="btn-close position-absolute top-0 end-0 mt-3 me-3" type="button" data-bs-dismiss="modal"></button>
+              <div class="row mx-0 align-items-center">
+                <div class="col-md-6 border-end-md p-4 p-sm-5">
+                  <h2 class="h3 mb-4 mb-sm-5">Join Finder.<br>Get premium benefits:</h2>
+                  <ul class="list-unstyled mb-4 mb-sm-5">
+                    <li class="d-flex mb-2"><i class="fi-check-circle text-primary mt-1 me-2"></i><span>Add and promote your listings</span></li>
+                    <li class="d-flex mb-2"><i class="fi-check-circle text-primary mt-1 me-2"></i><span>Easily manage your wishlist</span></li>
+                    <li class="d-flex mb-0"><i class="fi-check-circle text-primary mt-1 me-2"></i><span>Leave reviews</span></li>
+                  </ul><img class="d-block mx-auto" src="img/signin-modal/signup.svg" width="344" alt="Illustartion">
+                  <div class="mt-sm-4 pt-md-3">Already have an account? <a href="#signin-modal" data-bs-toggle="modal" data-bs-dismiss="modal">Sign in</a></div>
+                </div>
+                <div class="col-md-6 px-4 pt-2 pb-4 px-sm-5 pb-sm-5 pt-md-5"><a class="btn btn-outline-info w-100 mb-3" href="#"><i class="fi-google fs-lg me-1"></i>Sign in with Google</a><a class="btn btn-outline-info w-100 mb-3" href="#"><i class="fi-facebook fs-lg me-1"></i>Sign in with Facebook</a>
+                  <div class="d-flex align-items-center py-3 mb-3">
+                    <hr class="w-100">
+                    <div class="px-3">Or</div>
+                    <hr class="w-100">
+                  </div>
+                  <form class="needs-validation" novalidate>
+                    <div class="mb-4">
+                      <label class="form-label" for="signup-name">Full name</label>
+                      <input class="form-control" type="text" id="signup-name" placeholder="Enter your full name" required>
+                    </div>
+                    <div class="mb-4">
+                      <label class="form-label" for="signup-email">Email address</label>
+                      <input class="form-control" type="email" id="signup-email" placeholder="Enter your email" required>
+                    </div>
+                    <div class="mb-4">
+                      <label class="form-label" for="signup-password">Password <span class='fs-sm text-muted'>min. 8 char</span></label>
+                      <div class="password-toggle">
+                        <input class="form-control" type="password" id="signup-password" minlength="8" required>
+                        <label class="password-toggle-btn" aria-label="Show/hide password">
+                          <input class="password-toggle-check" type="checkbox"><span class="password-toggle-indicator"></span>
+                        </label>
+                      </div>
+                    </div>
+                    <div class="mb-4">
+                      <label class="form-label" for="signup-password-confirm">Confirm password</label>
+                      <div class="password-toggle">
+                        <input class="form-control" type="password" id="signup-password-confirm" minlength="8" required>
+                        <label class="password-toggle-btn" aria-label="Show/hide password">
+                          <input class="password-toggle-check" type="checkbox"><span class="password-toggle-indicator"></span>
+                        </label>
+                      </div>
+                    </div>
+                    <div class="form-check mb-4">
+                      <input class="form-check-input" type="checkbox" id="agree-to-terms" required>
+                      <label class="form-check-label" for="agree-to-terms">By joining, I agree to the <a href='#'>Terms of use</a> and <a href='#'>Privacy policy</a></label>
+                    </div>
+                    <button class="btn btn-primary btn-lg w-100" type="submit">Sign up         </button>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Navbar-->
+      <header class="navbar navbar-expand-lg navbar-light bg-light fixed-top" data-scroll-header>
+        <div class="container"><a class="navbar-brand me-3 me-xl-4" href="cb-home.html"><img class="d-block" src="img/logo/logo.png" width="70" alt="Finder"></a>
+          <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button><a class="btn btn-sm text-primary d-none d-lg-block order-lg-3" href="#signin-modal" data-bs-toggle="modal"><i class="fi-user me-2"></i>Sign in</a><a class="btn btn-primary btn-sm ms-2 order-lg-3" href="cb-form.html"><i class="fi-plus me-2"></i>Add<span class='d-none d-sm-inline'> listing</span></a>
+          <div class="collapse navbar-collapse order-lg-2" id="navbarNav">
+            <ul class="navbar-nav navbar-nav-scroll" style="max-height: 35rem;">
+              <!-- Demos switcher-->
+              <li class="nav-item"><a class="nav-link" href="cb-home.html">Home</a></li>
+              <!-- Menu items-->
+              <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">What is CarBids.ph</a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="">About</a></li>
+                  <li><a class="dropdown-item" href="cb-buying.html">Buying a Car</a></li>
+                  <li><a class="dropdown-item" href="cb-selling.html">Selling a Car</a></li>
+                  <li><a class="dropdown-item" href="cb-finalizing.html">Finalizing the Sale</a></li>
+                  <li><a class="dropdown-item" href="cb-helpcenter.html">Help Center</a></li>
+                </ul>
+              </li>
+              <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Cars</a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="cb-marketplace.html">Car Marketplace</a></li>
+                  <li><a class="dropdown-item" href="cb-single.html">Single Car Listing</a></li>
+                  <li><a class="dropdown-item" href="cb-form.html">Add Car Listing Form</a></li>
+                </ul>
+              </li>
+              <li class="nav-item d-lg-none"><a class="nav-link" href="#signin-modal" data-bs-toggle="modal"><i class="fi-user me-2"></i>Sign in</a></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <!-- Page content-->
+      <!-- Hero-->
+      <section class="container pt-5 my-5 pb-lg-4">
+        <div class="row pt-0 pt-md-2 pt-lg-0">
+          <div class="col-xl-7 col-lg-6 col-md-5 order-md-2 mb-4 mb-lg-3 pt-md-5"><img src="img/car-finder/home/hero-img.png" style="background-size: 1920px 630px;" alt="Hero image"></div>
+          <div class="col-xl-5 col-lg-6 col-md-7 order-md-1 pt-xl-5 pe-lg-0 mb-3 text-md-start text-center">
+            <h1 class="display-4 mt-lg-5 mb-md-4 mb-3 pt-md-4 pb-lg-2">The coolest place to find your car</h1>
+            <p class="position-relative lead me-lg-n5">At CarBids.ph, we provide a complete service </br>  for the sale or purchase of your vehicle. </p>
+          </div>
+        </div>
+      </section>
+      <!-- Services-->
+      <section class="container mb-5 mt-n3 mt-lg-0">
+        <div class="tns-carousel-wrapper tns-nav-outside tns-nav-outside-flush mx-n2">
+          <div class="tns-carousel-inner row gx-4 mx-0 py-3" data-carousel-options="{&quot;items&quot;: 3, &quot;controls&quot;: false, &quot;responsive&quot;: {&quot;0&quot;:{&quot;items&quot;:1},&quot;500&quot;:{&quot;items&quot;:2},&quot;768&quot;:{&quot;items&quot;:3}}}">
+            <div class="col">
+              <div class="card card-hover border-0 h-100 pb-2 pb-sm-3 px-sm-3 text-center"><img class="d-block mx-auto my-3" src="img/real-estate/illustrations/buy.svg" width="256" alt="Illustration">
+                <div class="card-body">
+                  <h2 class="h4 card-title">Bid on a Vehicle </h2>
+                  <p class="card-text fs-sm">Blandit lorem dictum in velit. Et nisi at faucibus mauris pretium enim. Risus sapien nisi aliquam egestas leo dignissim.</p>
+                </div>
+                <div class="card-footer pt-0 border-0"><a class="btn btn-outline-primary stretched-link" href="cb-buying.html">Buy a car</a></div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="card card-hover border-0 h-100 pb-2 pb-sm-3 px-sm-3 text-center"><img class="d-block mx-auto my-3" src="img/real-estate/illustrations/sell.svg" width="256" alt="Illustration">
+                <div class="card-body">
+                  <h2 class="h4 card-title">Auction your Car </h2>
+                  <p class="card-text fs-sm">Amet, cras orci justo, tortor nisl aliquet. Enim tincidunt tellus nunc, nulla arcu posuere quis. Velit turpis orci venenatis.</p>
+                </div>
+                <div class="card-footer pt-0 border-0"><a class="btn btn-outline-primary stretched-link" href="cb-selling.html">Sell your car</a></div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="card card-hover border-0 h-100 pb-2 pb-sm-3 px-sm-3 text-center"><img class="d-block mx-auto my-3" src="img/real-estate/illustrations/rent.svg" width="256" alt="Illustration">
+                <div class="card-body">
+                  <h2 class="h4 card-title">Finalize the Sale </h2>
+                  <p class="card-text fs-sm">Sed sed aliquet sed id purus malesuada congue viverra. Habitant quis lacus, volutpat natoque ipsum iaculis cursus.</p>
+                </div>
+                <div class="card-footer pt-0 border-0"><a class="btn btn-outline-primary stretched-link" href="cb-finalizing.html">Close the deal</a></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <hr class="mt-n1 mb-5 d-md-none">
+      <!-- Why choose us?-->
+      <section class="container mb-2 mb-xl-5 pb-lg-4">
+        <h2 class="h3 mb-4">Why choose us?</h2>
+        <!-- Features carousel-->
+        <div class="tns-carousel-wrapper tns-nav-outside">
+          <div class="tns-carousel-inner" data-carousel-options="{&quot;loop&quot;: false, &quot;controls&quot;: false, &quot;responsive&quot;: {&quot;0&quot;:{&quot;items&quot;:1, &quot;gutter&quot;: 16},&quot;500&quot;:{&quot;items&quot;:2, &quot;gutter&quot;: 20},&quot;768&quot;:{&quot;items&quot;:3, &quot;gutter&quot;: 24}}}">
+            <!-- Feature slide-->
+            <div>
+              <div class="card border-0">
+                <div class="card-body">
+                  <svg class="mb-3" xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="#fd5631">
+                    <path d="M13.585 21.456a10.416 10.416 0 1 0 20.832 0c0-5.76-4.656-10.464-10.416-10.464s-10.416 4.704-10.416 10.464zm18.096 0c0 4.224-3.456 7.68-7.68 7.68s-7.68-3.456-7.68-7.68 3.456-7.68 7.68-7.68 7.68 3.408 7.68 7.68zm-10.225-.96a1.36 1.36 0 0 0-1.92 0 1.36 1.36 0 0 0 0 1.92l2.352 2.352c.24.24.624.384.96.384s.72-.144.96-.384l4.512-4.512a1.36 1.36 0 0 0 0-1.92 1.36 1.36 0 0 0-1.92 0l-3.552 3.552-1.392-1.392zM42 10.512C29.568 5.568 24.96 1.584 24.912 1.536c-.528-.48-1.296-.48-1.824 0C23.04 1.584 18.48 5.52 6 10.512c-.528.192-.864.72-.864 1.248 0 24.576 17.424 34.464 18.192 34.848.192.096.432.192.672.192a1.2 1.2 0 0 0 .672-.192c.72-.384 18.192-10.272 18.192-34.848 0-.528-.336-1.056-.864-1.248zM24 43.824C20.928 41.808 8.304 32.352 7.872 12.72 17.328 8.88 22.128 5.664 24 4.32c1.872 1.392 6.672 4.56 16.128 8.4C39.744 32.352 27.072 41.808 24 43.824z"></path>
+                  </svg>
+                  <h3 class="h5 card-title pb-1">Extensive Reach</h3>
+                  <p class="card-text">Vel et aliquet diam vulputate hendrerit lorem eget amet adipiscing. At ut ut consectetur in sed massa arcu risus sed.</p>
+                </div>
+              </div>
+            </div>
+            <!-- Feature slide-->
+            <div>
+              <div class="card border-0">
+                <div class="card-body">
+                  <svg class="mb-3" xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="#fd5631">
+                    <path d="M39.976 40.416l-5.667-26.529c-.098-.44-.391-.831-.782-1.026L20.531 6.217l-.928-4.202c-.195-.831-.977-1.368-1.808-1.173s-1.368.977-1.172 1.808l.879 4.202-9.136 11.335c-.293.342-.391.831-.293 1.27l5.618 26.529c.195.831.977 1.368 1.808 1.173l23.304-4.934a1.59 1.59 0 0 0 1.173-1.808zm-23.597 3.469L11.2 19.554l7.182-8.843.635 2.931c.195.831.977 1.368 1.808 1.172s1.368-.977 1.172-1.808l-.635-2.931 10.162 5.179 5.179 24.33-20.324 4.299zm7.963-17.149l-2.052.44a1.54 1.54 0 0 1-1.857-1.27c-.146-.831.44-1.612 1.27-1.759l2.052-.44c.684-.146 1.368.195 1.71.782.098.244.342.342.586.293l1.954-.44c.293-.049.489-.391.391-.684-.733-2.003-2.736-3.225-4.837-3.029l-.391-1.954c-.049-.293-.342-.489-.635-.391l-1.954.391c-.293.049-.489.342-.391.635l.391 1.954c-2.247.733-3.664 3.029-3.127 5.374.586 2.492 3.078 4.006 5.521 3.469l2.003-.44c.831-.195 1.661.293 1.857 1.124.244.879-.293 1.71-1.172 1.905l-2.101.44c-.684.147-1.368-.195-1.71-.782-.098-.195-.342-.342-.586-.293l-1.954.44c-.342.049-.488.391-.391.684.733 2.003 2.736 3.224 4.837 3.029l.391 1.905c.049.293.342.489.635.391l1.954-.391c.293-.049.489-.342.391-.635l-.391-1.905c2.247-.733 3.664-3.029 3.127-5.374-.538-2.492-3.029-4.006-5.521-3.469z"></path>
+                  </svg>
+                  <h3 class="h5 card-title pb-1">Low Fees</h3>
+                  <p class="card-text">Tincidunt mauris sit eu, lacinia pharetra, lorem neque dui. Maecenas ultricies laoreet facilisis fusce amet, consequat neque.</p>
+                </div>
+              </div>
+            </div>
+            <!-- Feature slide-->
+            <div>
+              <div class="card border-0">
+                <div class="card-body">
+                  <svg class="mb-3" xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="none">
+                    <path fill-rule="evenodd" d="M5.493 32.863a6.53 6.53 0 0 1-5.446-6.441v-3.981a6.53 6.53 0 0 1 1.913-4.619c1.225-1.225 2.887-1.913 4.619-1.913h.435C7.709 7.137 15.048.234 24 .234s16.291 6.903 16.986 15.675h.435a6.53 6.53 0 0 1 6.532 6.532v3.981a6.53 6.53 0 0 1-6.532 6.532h-1.928a1.45 1.45 0 0 1-1.447-1.448V17.274A14.05 14.05 0 0 0 24 3.228 14.05 14.05 0 0 0 9.954 17.274v14.232a1.45 1.45 0 0 1-1.447 1.448h0a8.87 8.87 0 0 0 8.821 7.935h.199c.248-.839.702-1.611 1.332-2.241.991-.991 2.336-1.548 3.738-1.548h2.807a5.29 5.29 0 0 1 5.287 5.286 5.29 5.29 0 0 1-5.287 5.287h-2.807a5.29 5.29 0 0 1-5.071-3.789h-.198c-3.147 0-6.164-1.25-8.39-3.475-2.025-2.025-3.242-4.707-3.445-7.545zm22.203 9.523c0-1.266-1.026-2.292-2.292-2.292h-2.807a2.29 2.29 0 0 0-2.292 2.292c0 1.266 1.026 2.292 2.292 2.292h2.807c1.266 0 2.292-1.026 2.292-2.292zM6.96 18.903h-.381a3.54 3.54 0 0 0-3.538 3.538v3.981a3.54 3.54 0 0 0 3.538 3.538h.381V18.903zm34.08 0V29.96h.381a3.54 3.54 0 0 0 3.538-3.538v-3.981a3.54 3.54 0 0 0-3.538-3.538h-.381z" fill="#fd5631"></path>
+                  </svg>
+                  <h3 class="h5 card-title pb-1">Support 24/7</h3>
+                  <p class="card-text">Id velit, dui condimentum dictumst sapien quis a elementum dignissim. Dignissim ultrices scelerisque ultrices nisi.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Upcoming events-->
+      <section class="container mb-5 pb-lg-3">
+        <div class="d-md-flex align-items-center justify-content-between mb-4 pb-md-2">
+          <h2 class="h3 w-100 mb-md-0">Upcoming Auctions at CarBids.ph</h2>
+        </div>
+        <!-- Carousel-->
+        <div class="tns-carousel-wrapper tns-controls-outside-xxl tns-nav-outside tns-center">
+          <div class="tns-carousel-inner" data-carousel-options="{&quot;items&quot;: 1, &quot;edgePadding&quot;: true, &quot;responsive&quot;: {&quot;0&quot;:{&quot;controls&quot;: false, &quot;gutter&quot;: 16},&quot;500&quot;:{&quot;controls&quot;: true, &quot;gutter&quot;: 16}, &quot;768&quot;: {&quot;gutter&quot;: 24}}}">
+            <!-- Item-->
+            <div>
+              <div class="card border-0 bg-size-cover pt-5" style="background-image: url(img/car-finder/catalog/17.jpg);">
+                <div class="d-none d-md-block" style="height: 13rem;"></div>
+                <div class="card-body text-center text-md-start pt-4 pt-xl-0">
+                  <div class="d-md-flex justify-content-between align-items-end">
+                    <div class="me-2 mb-4 mb-md-0">
+                      <div class="d-flex justify-content-center justify-content-md-start text-light fs-sm mb-2">
+                        <div class="text-nowrap me-3"><i class="fi-calendar-alt me-1 opacity-70"></i><span class="align-middle">Nov 15</span></div>
+                        <div class="text-nowrap"><i class="fi-clock me-1 opacity-70"></i><span class="align-middle">21:00</span></div>
+                      </div>
+                      <h3 class="h5 text-light mb-0">Mercedes Coupe</h3>
+                    </div>
+                    <div class="btn-group"><a class="btn btn-primary rounded-pill rounded-end-0 px-3" href="#">Starts at PHP 5,000,000</a>
+                      <div class="position-relative border-start border-light zindex-5" style="margin-left: -1px;"></div>
+                      <button class="btn btn-primary rounded-pill rounded-start-0 px-3" type="button"><i class="fi-heart"></i></button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Item-->
+            <div>
+              <div class="card border-0 bg-size-cover pt-5" style="background-image: url(img/car-finder/catalog/17.jpg);">
+                <div class="d-none d-md-block" style="height: 13rem;"></div>
+                <div class="card-body text-center text-md-start pt-4 pt-xl-0">
+                  <div class="d-md-flex justify-content-between align-items-end">
+                    <div class="me-2 mb-4 mb-md-0">
+                      <div class="d-flex justify-content-center justify-content-md-start text-light fs-sm mb-2">
+                        <div class="text-nowrap me-3"><i class="fi-calendar-alt me-1 opacity-70"></i><span class="align-middle">Dec 2</span></div>
+                        <div class="text-nowrap"><i class="fi-clock me-1 opacity-70"></i><span class="align-middle">10:00</span></div>
+                      </div>
+                      <h3 class="h5 text-light mb-0">Mercedes Coupe</h3>
+                    </div>
+                    <div class="btn-group"><a class="btn btn-primary rounded-pill rounded-end-0 px-3" href="#">Starts at PHP 5,000,000</a>
+                      <div class="position-relative border-start border-light zindex-5" style="margin-left: -1px;"></div>
+                      <button class="btn btn-primary rounded-pill rounded-start-0 px-3" type="button"><i class="fi-heart"></i></button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Item-->
+            <div>
+              <div class="card border-0 bg-size-cover pt-5" style="background-image: url(img/car-finder/catalog/17.jpg);">
+                <div class="d-none d-md-block" style="height: 13rem;"></div>
+                <div class="card-body text-center text-md-start pt-4 pt-xl-0">
+                  <div class="d-md-flex justify-content-between align-items-end">
+                    <div class="me-2 mb-4 mb-md-0">
+                      <div class="d-flex justify-content-center justify-content-md-start text-light fs-sm mb-2">
+                        <div class="text-nowrap me-3"><i class="fi-calendar-alt me-1 opacity-70"></i><span class="align-middle">No 11</span></div>
+                        <div class="text-nowrap"><i class="fi-clock me-1 opacity-70"></i><span class="align-middle">18:00</span></div>
+                      </div>
+                      <h3 class="h5 text-light mb-0">Mercedes Coupe</h3>
+                    </div>
+                    <div class="btn-group"><a class="btn btn-primary rounded-pill rounded-end-0 px-3" href="#">Starts at PHP 5,000,000</a>
+                      <div class="position-relative border-start border-light zindex-5" style="margin-left: -1px;"></div>
+                      <button class="btn btn-primary rounded-pill rounded-start-0 px-3" type="button"><i class="fi-heart"></i></button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Recently added-->
+      <section class="container pb-4 pt-1 mb-5">
+        <div class="d-flex align-items-end align-items-lg-center justify-content-between mb-4 pb-md-2">
+          <div class="d-flex w-100 align-items-center justify-content-between justify-content-lg-start">
+            <h2 class="h3 mb-0 me-md-4">Ongoing Auctions</h2>
+            <div class="dropdown d-md-none" data-bs-toggle="select"></div>
+          </div><a class="btn btn-link fw-normal d-none d-lg-block p-0" href="real-estate-catalog-rent.html">View all<i class="fi-arrow-long-right ms-2"></i></a>
+        </div>
+        <div class="row g-4">
+          <div class="col-md-6">
+            <div class="card bg-size-cover bg-position-center border-0 overflow-hidden h-100" style="background-image: url(img/car-finder/catalog/09.jpg);"><span class="img-gradient-overlay"></span>
+              <div class="card-body content-overlay pb-0">
+                <div class="d-flex"><span class="badge bg-danger fs-sm me-2">Hot</span><span class="badge bg-info fs-sm">New</span></div>
+              </div>
+              <div class="card-footer content-overlay border-0 pt-0 pb-4">
+                <div class="d-sm-flex justify-content-between align-items-end pt-5 mt-2 mt-sm-5"><a class="text-decoration-none text-light pe-2" href="cb-single.html">
+                    <div class="fs-sm text-uppercase pt-2 mb-1">2018</div>
+                    <h3 class="h5 text-light mb-1">Ford Raptor</h3>
+                    <div class="fs-sm opacity-70"><i class="fi-map-pin me-1"></i>Las Pinas, Metro Manila</div></a>
+                  <div class="btn-group ms-n2 ms-sm-0 mt-3"><a class="btn btn-primary px-3" href="cb-single.html" style="height: 2.75rem;">From PHP 399,850</a>
+                    <button class="btn btn-primary btn-icon border-end-0 border-top-0 border-bottom-0 border-light fs-sm" type="button"><i class="fi-heart"></i></button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="card bg-size-cover bg-position-center border-0 overflow-hidden mb-4" style="background-image: url(img/car-finder/catalog/17.jpg);"><span class="img-gradient-overlay"></span>
+              <div class="card-body content-overlay pb-0"><span class="badge bg-info fs-sm">New</span></div>
+              <div class="card-footer content-overlay border-0 pt-0 pb-4">
+                <div class="d-sm-flex justify-content-between align-items-end pt-5 mt-2 mt-sm-5"><a class="text-decoration-none text-light pe-2" href="cb-single.html">
+                    <div class="fs-sm text-uppercase pt-2 mb-1">2015</div>
+                    <h3 class="h5 text-light mb-1">Mercedes Benz</h3>
+                    <div class="fs-sm opacity-70"><i class="fi-map-pin me-1"></i>Novaliches, Quezon City</div></a>
+                  <div class="btn-group ms-n2 ms-sm-0 mt-3"><a class="btn btn-primary px-3" href="cb-single.html" style="height: 2.75rem;">PHP2,000,410</a>
+                    <button class="btn btn-primary btn-icon border-end-0 border-top-0 border-bottom-0 border-light fs-sm" type="button"><i class="fi-heart"></i></button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="card bg-size-cover bg-position-center border-0 overflow-hidden" style="background-image: url(img/car-finder/single/gallery/05.jpg);"><span class="img-gradient-overlay"></span>
+              <div class="card-body content-overlay pb-0"><span class="badge bg-info fs-sm">New</span></div>
+              <div class="card-footer content-overlay border-0 pt-0 pb-4">
+                <div class="d-sm-flex justify-content-between align-items-end pt-5 mt-2 mt-sm-5"><a class="text-decoration-none text-light pe-2" href="cb-single.html">
+                    <div class="fs-sm text-uppercase pt-2 mb-1">2021</div>
+                    <h3 class="h5 text-light mb-1">Mercedes</h3>
+                    <div class="fs-sm opacity-70"><i class="fi-map-pin me-1"></i>Pasig City, Metro Manila</div></a>
+                  <div class="btn-group ms-n2 ms-sm-0 mt-3"><a class="btn btn-primary px-3" href="cb-single.html" style="height: 2.75rem;">$162,000</a>
+                    <button class="btn btn-primary btn-icon border-end-0 border-top-0 border-bottom-0 border-light fs-sm" type="button"><i class="fi-heart"></i></button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Meet our professional team-->
+      <section class="container mb-5 pb-2 pb-lg-4">
+        <div class="d-flex align-items-end justify-content-sm-between justify-content-center mb-3">
+          <h2 class="h3 mb-0 text-sm-start text-center">Meet our professional team</h2>
+          <div class="tns-carousel-controls tns-controls-static d-sm-flex d-none ms-4" id="external-controls">
+            <button class="mx-2" type="button"><i class="fi-chevron-left"></i></button>
+            <button class="mx-2" type="button"><i class="fi-chevron-right"></i></button>
+          </div>
+        </div>
+        <!-- Team carousel-->
+        <div class="tns-carousel-wrapper tns-nav-outside tns-nav-outside-flush mx-n2">
+          <div class="tns-carousel-inner row gx-4 mx-0 pt-3 pb-4" data-carousel-options="{&quot;controlsContainer&quot;: &quot;#external-controls&quot;, &quot;responsive&quot;: {&quot;0&quot;:{&quot;items&quot;:1},&quot;500&quot;:{&quot;items&quot;:2},&quot;768&quot;:{&quot;items&quot;:3},&quot;992&quot;:{&quot;items&quot;:4, &quot;nav&quot;: false}}}">
+            <!-- Team slide-->
+            <div class="col">
+              <div class="card border-0 shadow-sm mt-md-4"><img class="card-img-top" src="img/real-estate/about/team/04.jpg" alt="Albert Flores">
+                <div class="card-body text-center">
+                  <h3 class="h5 card-title mb-2">Albert Flores</h3><span class="d-inline-block mb-3 fs-sm">Real Estate Agent</span>
+                  <div class="pt-1"><a class="btn btn-icon btn-light-primary btn-xs rounded-circle shadow-sm mx-2" href="#"><i class="fi-facebook"></i></a><a class="btn btn-icon btn-light-primary btn-xs rounded-circle shadow-sm mx-2" href="#"><i class="fi-twitter"></i></a><a class="btn btn-icon btn-light-primary btn-xs rounded-circle shadow-sm mx-2" href="#"><i class="fi-instagram"></i></a></div>
+                </div>
+              </div>
+            </div>
+            <!-- Team slide-->
+            <div class="col">
+              <div class="card border-0 shadow-sm"><img class="card-img-top" src="img/real-estate/about/team/04.jpg" alt="Albert Flores">
+                <div class="card-body text-center">
+                  <h3 class="h5 card-title mb-2">Albert Flores</h3><span class="d-inline-block mb-3 fs-sm">Finance Director</span>
+                  <div class="pt-1"><a class="btn btn-icon btn-light-primary btn-xs rounded-circle shadow-sm mx-2" href="#"><i class="fi-facebook"></i></a><a class="btn btn-icon btn-light-primary btn-xs rounded-circle shadow-sm mx-2" href="#"><i class="fi-twitter"></i></a><a class="btn btn-icon btn-light-primary btn-xs rounded-circle shadow-sm mx-2" href="#"><i class="fi-instagram"></i></a></div>
+                </div>
+              </div>
+            </div>
+            <!-- Team slide-->
+            <div class="col">
+              <div class="card border-0 shadow-sm mt-md-4"><img class="card-img-top" src="img/real-estate/about/team/04.jpg" alt="Albert Flores">
+                <div class="card-body text-center">
+                  <h3 class="h5 card-title mb-2">Albert Flores</h3><span class="d-inline-block mb-3 fs-sm">Sales Executive</span>
+                  <div class="pt-1"><a class="btn btn-icon btn-light-primary btn-xs rounded-circle shadow-sm mx-2" href="#"><i class="fi-facebook"></i></a><a class="btn btn-icon btn-light-primary btn-xs rounded-circle shadow-sm mx-2" href="#"><i class="fi-twitter"></i></a><a class="btn btn-icon btn-light-primary btn-xs rounded-circle shadow-sm mx-2" href="#"><i class="fi-instagram"></i></a></div>
+                </div>
+              </div>
+            </div>
+            <!-- Team slide-->
+            <div class="col">
+              <div class="card border-0 shadow-sm"><img class="card-img-top" src="img/real-estate/about/team/04.jpg" alt="Albert Flores">
+                <div class="card-body text-center">
+                  <h3 class="h5 card-title mb-2">Albert Flores</h3><span class="d-inline-block mb-3 fs-sm">Property Manager</span>
+                  <div class="pt-1"><a class="btn btn-icon btn-light-primary btn-xs rounded-circle shadow-sm mx-2" href="#"><i class="fi-facebook"></i></a><a class="btn btn-icon btn-light-primary btn-xs rounded-circle shadow-sm mx-2" href="#"><i class="fi-twitter"></i></a><a class="btn btn-icon btn-light-primary btn-xs rounded-circle shadow-sm mx-2" href="#"><i class="fi-instagram"></i></a></div>
+                </div>
+              </div>
+            </div>
+            <!-- Team slide-->
+            <div class="col">
+              <div class="card border-0 shadow-sm mt-md-4"><img class="card-img-top" src="img/real-estate/about/team/01.jpg" alt="Devon Lane">
+                <div class="card-body text-center">
+                  <h3 class="h5 card-title mb-2">Devon Lane</h3><span class="d-inline-block mb-3 fs-sm">Real Estate Agent</span>
+                  <div class="pt-1"><a class="btn btn-icon btn-light-primary btn-xs rounded-circle shadow-sm mx-2" href="#"><i class="fi-facebook"></i></a><a class="btn btn-icon btn-light-primary btn-xs rounded-circle shadow-sm mx-2" href="#"><i class="fi-twitter"></i></a><a class="btn btn-icon btn-light-primary btn-xs rounded-circle shadow-sm mx-2" href="#"><i class="fi-instagram"></i></a></div>
+                </div>
+              </div>
+            </div>
+            <!-- Team slide-->
+            <div class="col">
+              <div class="card border-0 shadow-sm"><img class="card-img-top" src="img/real-estate/about/team/02.jpg" alt="Dianne Russell">
+                <div class="card-body text-center">
+                  <h3 class="h5 card-title mb-2">Dianne Russell</h3><span class="d-inline-block mb-3 fs-sm">Finance Director</span>
+                  <div class="pt-1"><a class="btn btn-icon btn-light-primary btn-xs rounded-circle shadow-sm mx-2" href="#"><i class="fi-facebook"></i></a><a class="btn btn-icon btn-light-primary btn-xs rounded-circle shadow-sm mx-2" href="#"><i class="fi-twitter"></i></a><a class="btn btn-icon btn-light-primary btn-xs rounded-circle shadow-sm mx-2" href="#"><i class="fi-instagram"></i></a></div>
+                </div>
+              </div>
+            </div>
+            <!-- Team slide-->
+            <div class="col">
+              <div class="card border-0 shadow-sm mt-md-4"><img class="card-img-top" src="img/real-estate/about/team/03.jpg" alt="Ronald Richards">
+                <div class="card-body text-center">
+                  <h3 class="h5 card-title mb-2">Ronald Richards</h3><span class="d-inline-block mb-3 fs-sm">Sales Executive</span>
+                  <div class="pt-1"><a class="btn btn-icon btn-light-primary btn-xs rounded-circle shadow-sm mx-2" href="#"><i class="fi-facebook"></i></a><a class="btn btn-icon btn-light-primary btn-xs rounded-circle shadow-sm mx-2" href="#"><i class="fi-twitter"></i></a><a class="btn btn-icon btn-light-primary btn-xs rounded-circle shadow-sm mx-2" href="#"><i class="fi-instagram"></i></a></div>
+                </div>
+              </div>
+            </div>
+            <!-- Team slide-->
+            <div class="col">
+              <div class="card border-0 shadow-sm"><img class="card-img-top" src="img/real-estate/about/team/04.jpg" alt="Albert Flores">
+                <div class="card-body text-center">
+                  <h3 class="h5 card-title mb-2">Albert Flores</h3><span class="d-inline-block mb-3 fs-sm">Property Manager</span>
+                  <div class="pt-1"><a class="btn btn-icon btn-light-primary btn-xs rounded-circle shadow-sm mx-2" href="#"><i class="fi-facebook"></i></a><a class="btn btn-icon btn-light-primary btn-xs rounded-circle shadow-sm mx-2" href="#"><i class="fi-twitter"></i></a><a class="btn btn-icon btn-light-primary btn-xs rounded-circle shadow-sm mx-2" href="#"><i class="fi-instagram"></i></a></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Partners (carousel)-->
+      <section class="container mb-5 pb-2 pb-lg-4">
+        <h2 class="h3 mb-4 text-center text-md-start">Our partners</h2>
+        <div class="tns-carousel-wrapper tns-nav-outside tns-nav-outside-flush">
+          <div class="tns-carousel-inner" data-carousel-options="{&quot;items&quot;: 4, &quot;controls&quot;: false, &quot;responsive&quot;: {&quot;0&quot;:{&quot;items&quot;:2}, &quot;500&quot;:{&quot;items&quot;:4}, &quot;992&quot;:{&quot;items&quot;:4, &quot;gutter&quot;: 16}, &quot;1200&quot;:{&quot;items&quot;:4, &quot;gutter&quot;: 24}}}">
+            <div><a class="swap-image" href="#"><img class="swap-to" src="img/real-estate/brands/01_color.svg" alt="Logo" width="196"><img class="swap-from" src="img/real-estate/brands/01_gray.svg" alt="Logo" width="196"></a></div>
+            <div><a class="swap-image" href="#"><img class="swap-to" src="img/real-estate/brands/02_color.svg" alt="Logo" width="196"><img class="swap-from" src="img/real-estate/brands/02_gray.svg" alt="Logo" width="196"></a></div>
+            <div><a class="swap-image" href="#"><img class="swap-to" src="img/real-estate/brands/03_color.svg" alt="Logo" width="196"><img class="swap-from" src="img/real-estate/brands/03_gray.svg" alt="Logo" width="196"></a></div>
+            <div><a class="swap-image" href="#"><img class="swap-to" src="img/real-estate/brands/04_color.svg" alt="Logo" width="196"><img class="swap-from" src="img/real-estate/brands/04_gray.svg" alt="Logo" width="196"></a></div>
+          </div>
+        </div>
+        <!-- Hear from our customers-->
+      </section>
+      <section class="container mb-5 pb-xl-5 pb-md-2">
+        <h2 class="h3 mb-3 text-center">Hear from our customers</h2>
+        <!-- Testimonials carousel-->
+        <div class="tns-carousel-wrapper tns-controls-outside-lg tns-nav-outside tns-nav-outside-flush col-lg-10 mx-auto px-0">
+          <div class="tns-carousel-inner" data-carousel-options="{&quot;gutter&quot;: 24}">
+            <!-- Testimonial slide-->
+            <div class="d-flex flex-md-row flex-column align-items-md-start mx-3 py-3"><img class="d-md-block d-none me-4 rounded-3" src="img/real-estate/about/testimonials/01.jpg" width="306" alt="Customer image">
+              <div class="card border-0 shadow-sm h-100">
+                <blockquote class="blockquote card-body">
+                  <p>Eu massa, pharetra massa integer. Sed molestie sollicitudin morbi ultrices. Odio is euismodtelle faucibus. Venenatis nunc, tristique turpis cras sodales. In dui, viverra et ac. Id justo, varius nunc, faucibus erat proin elit. Amet diam, aliquet nec quis vel. Donec ut quisque in lorem sapien.</p>
+                  <footer class="d-flex align-items-center"><img src="img/job-board/company/zalo-lg.png" width="56" alt="Logo">
+                    <div class="ps-3">
+                      <h6 class="fs-base mb-0">Zalo Tech Company</h6>
+                      <div class="text-muted fw-normal fs-sm">Floyd Miles, Head of HR Department</div>
+                    </div>
+                  </footer>
+                </blockquote>
+              </div>
+            </div>
+            <!-- Testimonial slide-->
+            <div class="d-flex align-items-start mx-3 py-3"><img class="d-md-block d-none me-4 rounded-3" src="img/real-estate/about/testimonials/02.jpg" width="306" alt="Customer image">
+              <div class="card border-0 shadow-sm h-100">
+                <blockquote class="blockquote card-body">
+                  <p>Eu massa, pharetra massa integer. Sed molestie sollicitudin morbi ultrices. Odio is euismodtelle faucibus. Venenatis nunc, tristique turpis cras sodales. In dui, viverra et ac. Id justo, varius nunc, faucibus erat proin elit. Amet diam, aliquet nec quis vel. Donec ut quisque in lorem sapien.</p>
+                  <footer class="d-flex align-items-center"><img src="img/job-board/company/elastic-lg.png" width="56" alt="Logo">
+                    <div class="ps-3">
+                      <h6 class="fs-base mb-0">Elastic Inc.</h6>
+                      <div class="text-muted fw-normal fs-sm">Guy Hawkins, Senior HR</div>
+                    </div>
+                  </footer>
+                </blockquote>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <!-- Footer-->
+    <footer class="footer bg-secondary pt-5">
+      <div class="container pt-lg-4 pb-4">
+        <!-- Links-->
+        <div class="row mb-5 pb-md-3 pb-lg-4">
+          <div class="col-lg-6 mb-lg-0 mb-4">
+            <div class="d-flex flex-sm-row flex-column justify-content-between mx-n2">
+              <div class="mb-sm-0 mb-4 px-2"><a class="d-inline-block mb-4" href="cb-home.html"><img src="img/logo/logo.png" width="116" alt="logo"></a>
+                <ul class="nav flex-column mb-sm-4 mb-2">
+                  <li class="nav-item mb-2"><a class="nav-link p-0 fw-normal" href="mailto:example@email.com"><i class="fi-mail mt-n1 me-2 align-middle opacity-70"></i>example@email.com</a></li>
+                  <li class="nav-item"><a class="nav-link p-0 fw-normal" href="tel:4065550120"><i class="fi-device-mobile mt-n1 me-2 align-middle opacity-70"></i>(406) 555-0120</a></li>
+                </ul>
+                <div class="pt-2"><a class="btn btn-icon btn-light-primary btn-xs shadow-sm rounded-circle me-2 mb-2" href="#"><i class="fi-facebook"></i></a><a class="btn btn-icon btn-light-primary btn-xs shadow-sm rounded-circle me-2 mb-2" href="#"><i class="fi-twitter"></i></a><a class="btn btn-icon btn-light-primary btn-xs shadow-sm rounded-circle me-2 mb-2" href="#"><i class="fi-viber"></i></a><a class="btn btn-icon btn-light-primary btn-xs shadow-sm rounded-circle me-2 mb-2" href="#"><i class="fi-telegram"></i></a></div>
+              </div>
+              <div class="mb-sm-0 mb-4 px-2">
+                <h4 class="h5">Quick Links</h4>
+                <ul class="nav flex-column">
+                  <li class="nav-item mb-2"><a class="nav-link p-0 fw-normal" href="#">Buy a car</a></li>
+                  <li class="nav-item mb-2"><a class="nav-link p-0 fw-normal" href="#">Sell a car</a></li>
+                  <li class="nav-item mb-2"><a class="nav-link p-0 fw-normal" href="#">Finalizing the Sale</a></li>
+                  <li class="nav-item mb-2"><a class="nav-link p-0 fw-normal" href="#">Marketplace</a></li>
+                </ul>
+              </div>
+              <div class="px-2">
+                <h4 class="h5">About</h4>
+                <ul class="nav flex-column">
+                  <li class="nav-item mb-2"><a class="nav-link p-0 fw-normal" href="#">About Us</a></li>
+                  <li class="nav-item mb-2"><a class="nav-link p-0 fw-normal" href="#">Help &amp; support</a></li>
+                  <li class="nav-item mb-2"><a class="nav-link p-0 fw-normal" href="#">Contacts</a></li>
+                  <li class="nav-item mb-2"><a class="nav-link p-0 fw-normal" href="#">News</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="col-xl-5 col-lg-6 offset-xl-1">
+            <h3 class="h5 mb-2">Subscribe to our newsletter</h3>
+            <p class="fs-sm opacity-70">Don’t miss any relevant offers!</p>
+            <form class="form-group w-100">
+              <div class="input-group input-group-sm"><span class="input-group-text"> <i class="fi-mail"></i></span>
+                <input class="form-control" type="text" placeholder="Your email">
+              </div>
+              <button class="btn btn-primary btn-icon btn-sm" type="button"><i class="fi-send"></i></button>
+            </form>
+          </div>
+        </div>
+        <div class="text-center fs-sm pt-4 mt-3 pb-2">&copy; All rights reserved. Made by <a href='https://iainnovations.ph/' class='d-inline-block nav-link p-0' target='_blank' rel='noopener'>IA Innovations</a></div>
+      </div>
+    </footer>
+    <!-- Back to top button--><a class="btn-scroll-top" href="#top" data-scroll><span class="btn-scroll-top-tooltip text-muted fs-sm me-2">Top</span><i class="btn-scroll-top-icon fi-chevron-up">   </i></a>
+    <!-- Vendor scrits: js libraries and plugins-->
+    <script src="vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="vendor/simplebar/dist/simplebar.min.js"></script>
+    <script src="vendor/smooth-scroll/dist/smooth-scroll.polyfills.min.js"></script>
+    <script src="vendor/nouislider/dist/nouislider.min.js"></script>
+    <script src="vendor/tiny-slider/dist/min/tiny-slider.js"></script>
+    <!-- Main theme script-->
+    <script src="js/theme.min.js"></script>
+  </body>
+</html>

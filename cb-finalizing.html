@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Carbids.ph | Carbids.ph | Finalizing</title>
+    <!-- SEO Meta Tags-->
+    <meta name="description" content="Finder - Directory &amp; Listings Bootstrap Template">
+    <meta name="keywords" content="bootstrap, business, directory, listings, e-commerce, car dealer, city guide, real estate, job board, user account, multipurpose, ui kit, html5, css3, javascript, gallery, slider, touch">
+    <meta name="author" content="Createx Studio">
+    <!-- Viewport-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Favicon and Touch Icons-->
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="manifest" href="site.webmanifest">
+    <link rel="mask-icon" color="#5bbad5" href="safari-pinned-tab.svg">
+    <meta name="msapplication-TileColor" content="#766df4">
+    <meta name="theme-color" content="#ffffff">
+    <!-- Page loading styles-->
+    <style>
+      .page-loading {
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        -webkit-transition: all .4s .2s ease-in-out;
+        transition: all .4s .2s ease-in-out;
+        background-color: #fff;
+        opacity: 0;
+        visibility: hidden;
+        z-index: 9999;
+      }
+      .page-loading.active {
+        opacity: 1;
+        visibility: visible;
+      }
+      .page-loading-inner {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        width: 100%;
+        text-align: center;
+        -webkit-transform: translateY(-50%);
+        transform: translateY(-50%);
+        -webkit-transition: opacity .2s ease-in-out;
+        transition: opacity .2s ease-in-out;
+        opacity: 0;
+      }
+      .page-loading.active > .page-loading-inner {
+        opacity: 1;
+      }
+      .page-loading-inner > span {
+        display: block;
+        font-size: 1rem;
+        font-weight: normal;
+        color: #666276;;
+      }
+      .page-spinner {
+        display: inline-block;
+        width: 2.75rem;
+        height: 2.75rem;
+        margin-bottom: .75rem;
+        vertical-align: text-bottom;
+        border: .15em solid #bbb7c5;
+        border-right-color: transparent;
+        border-radius: 50%;
+        -webkit-animation: spinner .75s linear infinite;
+        animation: spinner .75s linear infinite;
+      }
+      @-webkit-keyframes spinner {
+        100% {
+          -webkit-transform: rotate(360deg);
+          transform: rotate(360deg);
+        }
+      }
+      @keyframes spinner {
+        100% {
+          -webkit-transform: rotate(360deg);
+          transform: rotate(360deg);
+        }
+      }
+      
+    </style>
+    <!-- Page loading scripts-->
+    <script>
+      (function () {
+        window.onload = function () {
+          var preloader = document.querySelector('.page-loading');
+          preloader.classList.remove('active');
+          setTimeout(function () {
+            preloader.remove();
+          }, 2000);
+        };
+      })();
+      
+    </script>
+    <!-- Vendor Styles-->
+    <link rel="stylesheet" media="screen" href="vendor/simplebar/dist/simplebar.min.css"/>
+    <link rel="stylesheet" media="screen" href="vendor/tiny-slider/dist/tiny-slider.css"/>
+    <!-- Main Theme Styles + Bootstrap-->
+    <link rel="stylesheet" media="screen" href="css/theme.min.css">
+  </head>
+  <!-- Body-->
+  <body>
+    <!-- Page loading spinner-->
+    <div class="page-loading active">
+      <div class="page-loading-inner">
+        <div class="page-spinner"></div><span>Loading...</span>
+      </div>
+    </div>
+    <main class="page-wrapper">
+      <!-- Sign In Modal-->
+      <div class="modal fade" id="signin-modal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered p-2 my-0 mx-auto" style="max-width: 950px;">
+          <div class="modal-content">
+            <div class="modal-body px-0 py-2 py-sm-0">
+              <button class="btn-close position-absolute top-0 end-0 mt-3 me-3" type="button" data-bs-dismiss="modal"></button>
+              <div class="row mx-0 align-items-center">
+                <div class="col-md-6 border-end-md p-4 p-sm-5">
+                  <h2 class="h3 mb-4 mb-sm-5">Hey there!<br>Welcome back.</h2><img class="d-block mx-auto" src="img/signin-modal/signin.svg" width="344" alt="Illustartion">
+                  <div class="mt-4 mt-sm-5">Don't have an account? <a href="#signup-modal" data-bs-toggle="modal" data-bs-dismiss="modal">Sign up here</a></div>
+                </div>
+                <div class="col-md-6 px-4 pt-2 pb-4 px-sm-5 pb-sm-5 pt-md-5"><a class="btn btn-outline-info w-100 mb-3" href="#"><i class="fi-google fs-lg me-1"></i>Sign in with Google</a><a class="btn btn-outline-info w-100 mb-3" href="#"><i class="fi-facebook fs-lg me-1"></i>Sign in with Facebook</a>
+                  <div class="d-flex align-items-center py-3 mb-3">
+                    <hr class="w-100">
+                    <div class="px-3">Or</div>
+                    <hr class="w-100">
+                  </div>
+                  <form class="needs-validation" novalidate>
+                    <div class="mb-4">
+                      <label class="form-label mb-2" for="signin-email">Email address</label>
+                      <input class="form-control" type="email" id="signin-email" placeholder="Enter your email" required>
+                    </div>
+                    <div class="mb-4">
+                      <div class="d-flex align-items-center justify-content-between mb-2">
+                        <label class="form-label mb-0" for="signin-password">Password</label><a class="fs-sm" href="#">Forgot password?</a>
+                      </div>
+                      <div class="password-toggle">
+                        <input class="form-control" type="password" id="signin-password" placeholder="Enter password" required>
+                        <label class="password-toggle-btn" aria-label="Show/hide password">
+                          <input class="password-toggle-check" type="checkbox"><span class="password-toggle-indicator"></span>
+                        </label>
+                      </div>
+                    </div>
+                    <button class="btn btn-primary btn-lg w-100" type="submit">Sign in         </button>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Sign Up Modal-->
+      <div class="modal fade" id="signup-modal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered p-2 my-0 mx-auto" style="max-width: 950px;">
+          <div class="modal-content">
+            <div class="modal-body px-0 py-2 py-sm-0">
+              <button class="btn-close position-absolute top-0 end-0 mt-3 me-3" type="button" data-bs-dismiss="modal"></button>
+              <div class="row mx-0 align-items-center">
+                <div class="col-md-6 border-end-md p-4 p-sm-5">
+                  <h2 class="h3 mb-4 mb-sm-5">Join Finder.<br>Get premium benefits:</h2>
+                  <ul class="list-unstyled mb-4 mb-sm-5">
+                    <li class="d-flex mb-2"><i class="fi-check-circle text-primary mt-1 me-2"></i><span>Add and promote your listings</span></li>
+                    <li class="d-flex mb-2"><i class="fi-check-circle text-primary mt-1 me-2"></i><span>Easily manage your wishlist</span></li>
+                    <li class="d-flex mb-0"><i class="fi-check-circle text-primary mt-1 me-2"></i><span>Leave reviews</span></li>
+                  </ul><img class="d-block mx-auto" src="img/signin-modal/signup.svg" width="344" alt="Illustartion">
+                  <div class="mt-sm-4 pt-md-3">Already have an account? <a href="#signin-modal" data-bs-toggle="modal" data-bs-dismiss="modal">Sign in</a></div>
+                </div>
+                <div class="col-md-6 px-4 pt-2 pb-4 px-sm-5 pb-sm-5 pt-md-5"><a class="btn btn-outline-info w-100 mb-3" href="#"><i class="fi-google fs-lg me-1"></i>Sign in with Google</a><a class="btn btn-outline-info w-100 mb-3" href="#"><i class="fi-facebook fs-lg me-1"></i>Sign in with Facebook</a>
+                  <div class="d-flex align-items-center py-3 mb-3">
+                    <hr class="w-100">
+                    <div class="px-3">Or</div>
+                    <hr class="w-100">
+                  </div>
+                  <form class="needs-validation" novalidate>
+                    <div class="mb-4">
+                      <label class="form-label" for="signup-name">Full name</label>
+                      <input class="form-control" type="text" id="signup-name" placeholder="Enter your full name" required>
+                    </div>
+                    <div class="mb-4">
+                      <label class="form-label" for="signup-email">Email address</label>
+                      <input class="form-control" type="email" id="signup-email" placeholder="Enter your email" required>
+                    </div>
+                    <div class="mb-4">
+                      <label class="form-label" for="signup-password">Password <span class='fs-sm text-muted'>min. 8 char</span></label>
+                      <div class="password-toggle">
+                        <input class="form-control" type="password" id="signup-password" minlength="8" required>
+                        <label class="password-toggle-btn" aria-label="Show/hide password">
+                          <input class="password-toggle-check" type="checkbox"><span class="password-toggle-indicator"></span>
+                        </label>
+                      </div>
+                    </div>
+                    <div class="mb-4">
+                      <label class="form-label" for="signup-password-confirm">Confirm password</label>
+                      <div class="password-toggle">
+                        <input class="form-control" type="password" id="signup-password-confirm" minlength="8" required>
+                        <label class="password-toggle-btn" aria-label="Show/hide password">
+                          <input class="password-toggle-check" type="checkbox"><span class="password-toggle-indicator"></span>
+                        </label>
+                      </div>
+                    </div>
+                    <div class="form-check mb-4">
+                      <input class="form-check-input" type="checkbox" id="agree-to-terms" required>
+                      <label class="form-check-label" for="agree-to-terms">By joining, I agree to the <a href='#'>Terms of use</a> and <a href='#'>Privacy policy</a></label>
+                    </div>
+                    <button class="btn btn-primary btn-lg w-100" type="submit">Sign up         </button>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Navbar-->
+      <header class="navbar navbar-expand-lg navbar-light bg-light fixed-top" data-scroll-header>
+        <div class="container"><a class="navbar-brand me-3 me-xl-4" href="cb-home.html"><img class="d-block" src="img/logo/logo.png" width="70" alt="Finder"></a>
+          <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button><a class="btn btn-sm text-primary d-none d-lg-block order-lg-3" href="#signin-modal" data-bs-toggle="modal"><i class="fi-user me-2"></i>Sign in</a><a class="btn btn-primary btn-sm ms-2 order-lg-3" href="cb-form.html"><i class="fi-plus me-2"></i>Add<span class='d-none d-sm-inline'> listing</span></a>
+          <div class="collapse navbar-collapse order-lg-2" id="navbarNav">
+            <ul class="navbar-nav navbar-nav-scroll" style="max-height: 35rem;">
+              <!-- Demos switcher-->
+              <li class="nav-item"><a class="nav-link" href="cb-home.html">Home</a></li>
+              <!-- Menu items-->
+              <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">What is CarBids.ph</a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="">About</a></li>
+                  <li><a class="dropdown-item" href="cb-buying.html">Buying a Car</a></li>
+                  <li><a class="dropdown-item" href="cb-selling.html">Selling a Car</a></li>
+                  <li><a class="dropdown-item" href="cb-finalizing.html">Finalizing the Sale</a></li>
+                  <li><a class="dropdown-item" href="cb-helpcenter.html">Help Center</a></li>
+                </ul>
+              </li>
+              <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Cars</a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="cb-marketplace.html">Car Marketplace</a></li>
+                  <li><a class="dropdown-item" href="cb-single.html">Single Car Listing</a></li>
+                  <li><a class="dropdown-item" href="cb-form.html">Add Car Listing Form</a></li>
+                </ul>
+              </li>
+              <li class="nav-item d-lg-none"><a class="nav-link" href="#signin-modal" data-bs-toggle="modal"><i class="fi-user me-2"></i>Sign in</a></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <!-- Page content-->
+      <!-- Breadcrumb-->
+      <div class="container mt-5 mb-md-4 pt-5">
+        <nav class="mb-3 pt-md-3" aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="cb-home.html">Home</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Finalizing the Sale</li>
+          </ol>
+        </nav>
+      </div>
+      <!-- Page header-->
+      <section class="container mb-5 pb-2">
+        <div class="row align-items-center justify-content-center">
+          <!-- Hero content-->
+          <div class="col-lg-4 col-md-5 col-sm-9 order-md-1 order-2 text-md-start text-center">
+            <h1 class="mb-4">Finalizing the Sale</h1>
+            <p class="mb-4 pb-3 fs-lg">Once a car is sold on Cars & Bids, we connect the buyer and seller so they can complete the vehicle sale directly – and provide them with a custom checklist to ensure a smooth transaction.</p><a class="btn btn-lg btn-primary" href="">Get the Checklist</a>
+          </div>
+          <!-- Hero carousel-->
+          <div class="col-lg-7 col-md-6 offset-md-1 col-12 order-md-2 order-1">
+            <div class="tns-carousel-wrapper tns-controls-static tns-nav-outside">
+              <div class="tns-carousel-inner" data-carousel-options="{&quot;loop&quot;: true, &quot;gutter&quot;: 16}">
+                <div><img class="rounded-3" src="img/car-finder/about/02.jpg" alt="Carousel image"></div>
+                <div><img class="rounded-3" src="img/car-finder/about/01.jpg" alt="Carousel image"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- How it works-->
+      <section class="container mb-5 pb-2 pb-lg-5">
+        <h2 class="h3 mb-4 pb-sm-2">How it works</h2>
+        <!-- Grid card-->
+        <div class="row row-cols-lg-3 row-cols-sm-2 row-cols-1 gy-sm-5 gy-3">
+          <!-- Card item-->
+          <div class="col">
+            <div class="card border-0 shadow-sm position-relative h-100">
+              <div class="card-body">
+                <div class="h2 mb-2 text-primary">01</div>
+                <h3 class="h5 card-title mb-2">Make Contact</h3>
+                <p class="card-text fs-sm">In volutpat lacus orci volutpat nulla tristique eu. Ullamcorper in est lectus cras arcu sed felis.</p>
+              </div>
+              <!-- Arrow-->
+              <svg class="position-absolute top-0 end-0 mt-n2 d-sm-block d-none" xmlns="http://www.w3.org/2000/svg" width="78" height="30" fill="none" style="transform: translateY(-100%) translateX(70%);">
+                <path d="M77.955 14.396c.128-2.86 0-4.67-.576-4.745s-1.279 1.607-2.11 4.378l-1.279 4.897-.563 2.683c-.612-1.434-1.352-2.81-2.212-4.113-2.718-4.072-6.226-7.569-10.321-10.288C54.205 2.687 46.332.186 38.233.008c-8.823-.165-17.491 2.305-24.874 7.087C6.581 11.549 2.118 17.395.66 22.191.033 24.057-.15 26.04.123 27.987c.243 1.367.627 2.037.755 2.012.396 0-.396-3.025 1.522-7.264s6.394-9.339 12.789-13.123c6.905-4.018 14.838-5.974 22.841-5.631 3.811.182 7.574.924 11.164 2.202 7.323 2.623 13.717 7.296 18.403 13.452 1.061 1.417 1.816 2.531 2.404 3.417l-1.637-.278-5.295-1.012c-3.031-.569-4.988-.848-5.179-.392s1.419 1.544 4.335 2.759a47.66 47.66 0 0 0 5.269 1.772c1.023.278 2.097.544 3.21.772.588.127 1.1.228 1.765.342.541.152 1.109.184 1.663.094a3.86 3.86 0 0 0 1.547-.613 2.76 2.76 0 0 0 .934-1.265c.088-.252.156-.51.205-.772l.09-.595.23-1.544.384-2.949c.217-1.873.371-3.569.435-5.062" fill="#fd5631"></path>
+              </svg>
+            </div>
+          </div>
+          <!-- Card item-->
+          <div class="col">
+            <div class="card border-0 shadow-sm position-relative h-100">
+              <div class="card-body">
+                <div class="h2 mb-2 text-primary">02</div>
+                <h3 class="h5 card-title mb-2">Payments and Documentation</h3>
+                <p class="card-text fs-sm">Convallis suspendisse libero integer duis luctus laoreet pellentesque. Aenean eget.</p>
+              </div>
+              <!-- Arrow-->
+              <svg class="position-absolute top-0 end-0 mt-n2 d-lg-block d-none" xmlns="http://www.w3.org/2000/svg" width="78" height="30" fill="none" style="transform: translateY(-100%) translateX(70%);">
+                <path d="M77.955 14.396c.128-2.86 0-4.67-.576-4.745s-1.279 1.607-2.11 4.378l-1.279 4.897-.563 2.683c-.612-1.434-1.352-2.81-2.212-4.113-2.718-4.072-6.226-7.569-10.321-10.288C54.205 2.687 46.332.186 38.233.008c-8.823-.165-17.491 2.305-24.874 7.087C6.581 11.549 2.118 17.395.66 22.191.033 24.057-.15 26.04.123 27.987c.243 1.367.627 2.037.755 2.012.396 0-.396-3.025 1.522-7.264s6.394-9.339 12.789-13.123c6.905-4.018 14.838-5.974 22.841-5.631 3.811.182 7.574.924 11.164 2.202 7.323 2.623 13.717 7.296 18.403 13.452 1.061 1.417 1.816 2.531 2.404 3.417l-1.637-.278-5.295-1.012c-3.031-.569-4.988-.848-5.179-.392s1.419 1.544 4.335 2.759a47.66 47.66 0 0 0 5.269 1.772c1.023.278 2.097.544 3.21.772.588.127 1.1.228 1.765.342.541.152 1.109.184 1.663.094a3.86 3.86 0 0 0 1.547-.613 2.76 2.76 0 0 0 .934-1.265c.088-.252.156-.51.205-.772l.09-.595.23-1.544.384-2.949c.217-1.873.371-3.569.435-5.062" fill="#fd5631"></path>
+              </svg>
+            </div>
+          </div>
+          <!-- Card item-->
+          <div class="col">
+            <div class="card border-0 shadow-sm position-relative h-100">
+              <div class="card-body">
+                <div class="h2 mb-2 text-primary">03</div>
+                <h3 class="h5 card-title mb-2">Share your success story</h3>
+                <p class="card-text fs-sm">Cursus duis ridiculus purus eget velit mattis id vel. Semper aliquet auctor cras dui odio ege.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Story steps-->
+      <section class="container mb-5 pb-lg-5 pb-3 pb-sm-4">
+        <h2 class="mb-4 pb-2 text-center">Payments and Documentation </h2>
+        <div class="mx-auto" style="max-width: 864px;">
+          <div class="steps steps-light steps-vertical">
+            <div class="step">
+              <div class="step-progress"><span class="step-progress-end-dark"></span><span class="step-number bg-primary shadow-hover">1</span></div>
+              <div class="step-label">
+                <h3 class="h5 mb-2 pb-1">Buyers are expected to pay for the vehicle in-full within a week of the auction closing</h3>
+                <p class="dark-p mb-0">Odio velit, massa augue etiam in parturient volutpat orci. Pulvinar amet, at est ac curabitur mauris, semper cursus metus. Imperdiet sed massa amet at turpis. Dis risus, donec in ac ultricies tempor eu, amet.</p>
+              </div>
+            </div>
+            <div class="step">
+              <div class="step-progress"><span class="step-progress-end-dark"></span><span class="step-number bg-primary shadow-hover">2</span></div>
+              <div class="step-label">
+                <h3 class="h5 mb-2 pb-1">An accurate Bill of Sale should be created, including the terms of the transaction, to be signed by both parties</h3>
+                <p class="dark-p mb-0">Vitae erat ornare facilisi id sollicitudin turpis tempus, semper. Velit integer et volutpat, a. Massa ut amet amet, vitae nunc nulla sed.</p>
+              </div>
+            </div>
+            <div class="step">
+              <div class="step-progress"><span class="step-progress-end-dark"></span><span class="step-number bg-primary shadow-hover">3</span></div>
+              <div class="step-label">
+                <h3 class="h5 mb-2 pb-1">We recommend wire transfers or cashier’s checks for payment, but there are many possible options – including meeting at the buyer’s/seller’s bank</h3>
+                <p class="dark-p mb-0">Ut mattis nascetur aliquam neque velit nunc sed. Morbi congue mauris amet ultrices molestie tellus proin odio diam. Feugiat elit, habitasse egestas egestas id nec potenti. Donec convallis donec tristique mattis et viverra.</p>
+              </div>
+            </div>
+            <div class="step">
+              <div class="step-progress"><span class="step-progress-end-dark"></span><span class="step-number bg-primary shadow-hover">4</span></div>
+              <div class="step-label">
+                <h3 class="h5 mb-2 pb-1">Arrange for the car to be picked up and finalize the transaction.</h3>
+                <p class="dark-p mb-0">Tempor nullam pellentesque suspendisse nec. Arcu sagittis sed ut diam in ultrices. Leo lacinia feugiat interdum pellentesque nulla vitae duis.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Personalized search-->
+      <section class="container mb-5 pb-lg-5 pb-2 pb-sm-3">
+        <div class="row gy-4 align-items-lg-center">
+          <div class="col-md-6"><img class="rounded-3" src="img/car-finder/about/01.jpg" alt="Personalized search"></div>
+          <div class="col-lg-5 offset-lg-1 col-md-6 text-md-start text-center">
+            <h2 class="mb-md-4">Let us know how it goes!</h2>
+            <p class="mb-4 pb-md-3">Ante senectus sed at lacus. Sed pellentesque dapibus nunc, cursus hendrerit at faucibus ornare lectus. Sed vitae congue mauris consectetur. Cursus tristique et porta eget sapien vivamus turpis. Ultrices vitae eget mattis varius ipsum adipiscing id. Neque, sagittis cursus aliquam volutpat tristique viverra amet amet.</p><a class="btn btn-primary w-sm-auto w-100" href="car-finder-catalog-grid.html"><i class="fi-search me-2"></i>Search car</a>
+          </div>
+        </div>
+      </section>
+      <!-- FAQ-->
+      <section class="container mb-5 pb-2 pb-lg-5">
+        <div class="row">
+          <div class="col-lg-5 col-md-6">
+            <div class="d-flex flex-column text-md-start text-center">
+              <div class="order-md-1 order-2 mx-md-0 mx-auto mb-md-5 mb-4" style="max-width: 416px;">
+                <h2 class="mb-md-3 mb-2">FAQs</h2>
+                <p class="mb-4 pb-md-2">Have you any questions about an buying or selling car? Check out Help Center for all the details.</p><a class="btn btn-primary w-sm-auto w-100" href="cb-helpcenter.html">Help center<i class="fi-chevron-right ms-2"></i></a>
+              </div>
+              <div class="order-md-2 order-1"><img src="img/car-finder/about/03.png" alt="FAQs"></div>
+            </div>
+          </div>
+          <!-- Accordion-->
+          <div class="col-md-6 offset-lg-1">
+            <div class="accordiont" id="accordionFAQ">
+              <!-- Acordion item-->
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="heading-1">
+                  <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-1" aria-expanded="true" aria-controls="collapse-1">What if the deal fall through</button>
+                </h2>
+                <div class="accordion-collapse collapse show" aria-labelledby="heading-1" data-bs-parent="#accordionFAQ" id="collapse-1">
+                  <div class="accordion-body">Eum, quaerat. Corporis pariatur cum dolorem ullam at nulla ex doloribus, ratione quos repellendus aliquid aspernatur obcaecati adipisci maxime id, sed cupiditate.</div>
+                </div>
+              </div>
+              <!-- Accordion item-->
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="heading-2">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-2" aria-expanded="false" aria-controls="collapse-2">Expecation vs Reality</button>
+                </h2>
+                <div class="accordion-collapse collapse" aria-labelledby="heading-2" data-bs-parent="#accordionFAQ" id="collapse-2">
+                  <div class="accordion-body">Eros aliquam egestas eu sit faucibus facilisi urna, senectus id. Morbi pellentesque at molestie et. Et molestie nunc massa, donec eget viverra. Sodales nisl vitae gravida pretium enim cursus pharetra massa nisl. Auctor porta dolor nulla elementum malesuada ut etiam neque, enim.</div>
+                </div>
+              </div>
+              <!-- Accordion item-->
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="heading-3">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-3" aria-expanded="false" aria-controls="collapse-3">What if the car breaks down?</button>
+                </h2>
+                <div class="accordion-collapse collapse" aria-labelledby="heading-3" data-bs-parent="#accordionFAQ" id="collapse-3">
+                  <div class="accordion-body">Libero ut accusantium ea a ipsa, aliquam nemo aperiam porro deserunt aspernatur sequi amet voluptatibus, fugiat nobis. Atque voluptatibus quibusdam placeat voluptas.</div>
+                </div>
+              </div>
+              <!-- Accordion item-->
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="heading-4">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-4" aria-expanded="false" aria-controls="collapse-4">What if the car still has a loan?</button>
+                </h2>
+                <div class="accordion-collapse collapse" aria-labelledby="heading-4" data-bs-parent="#accordionFAQ" id="collapse-4">
+                  <div class="accordion-body">Numquam eaque rerum repellat nisi? Sint, dolorum consequuntur! Provident, voluptate maiores dolorum similique ipsam asperiores quos assumenda hic ad omnis cumque nesciunt.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <!-- Footer-->
+    <footer class="footer bg-secondary pt-5">
+      <div class="container pt-lg-4 pb-4">
+        <!-- Links-->
+        <div class="row mb-5 pb-md-3 pb-lg-4">
+          <div class="col-lg-6 mb-lg-0 mb-4">
+            <div class="d-flex flex-sm-row flex-column justify-content-between mx-n2">
+              <div class="mb-sm-0 mb-4 px-2"><a class="d-inline-block mb-4" href="cb-home.html"><img src="img/logo/logo.png" width="116" alt="logo"></a>
+                <ul class="nav flex-column mb-sm-4 mb-2">
+                  <li class="nav-item mb-2"><a class="nav-link p-0 fw-normal" href="mailto:example@email.com"><i class="fi-mail mt-n1 me-2 align-middle opacity-70"></i>example@email.com</a></li>
+                  <li class="nav-item"><a class="nav-link p-0 fw-normal" href="tel:4065550120"><i class="fi-device-mobile mt-n1 me-2 align-middle opacity-70"></i>(406) 555-0120</a></li>
+                </ul>
+                <div class="pt-2"><a class="btn btn-icon btn-light-primary btn-xs shadow-sm rounded-circle me-2 mb-2" href="#"><i class="fi-facebook"></i></a><a class="btn btn-icon btn-light-primary btn-xs shadow-sm rounded-circle me-2 mb-2" href="#"><i class="fi-twitter"></i></a><a class="btn btn-icon btn-light-primary btn-xs shadow-sm rounded-circle me-2 mb-2" href="#"><i class="fi-viber"></i></a><a class="btn btn-icon btn-light-primary btn-xs shadow-sm rounded-circle me-2 mb-2" href="#"><i class="fi-telegram"></i></a></div>
+              </div>
+              <div class="mb-sm-0 mb-4 px-2">
+                <h4 class="h5">Quick Links</h4>
+                <ul class="nav flex-column">
+                  <li class="nav-item mb-2"><a class="nav-link p-0 fw-normal" href="#">Buy a car</a></li>
+                  <li class="nav-item mb-2"><a class="nav-link p-0 fw-normal" href="#">Sell a car</a></li>
+                  <li class="nav-item mb-2"><a class="nav-link p-0 fw-normal" href="#">Finalizing the Sale</a></li>
+                  <li class="nav-item mb-2"><a class="nav-link p-0 fw-normal" href="#">Marketplace</a></li>
+                </ul>
+              </div>
+              <div class="px-2">
+                <h4 class="h5">About</h4>
+                <ul class="nav flex-column">
+                  <li class="nav-item mb-2"><a class="nav-link p-0 fw-normal" href="#">About Us</a></li>
+                  <li class="nav-item mb-2"><a class="nav-link p-0 fw-normal" href="#">Help &amp; support</a></li>
+                  <li class="nav-item mb-2"><a class="nav-link p-0 fw-normal" href="#">Contacts</a></li>
+                  <li class="nav-item mb-2"><a class="nav-link p-0 fw-normal" href="#">News</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="col-xl-5 col-lg-6 offset-xl-1">
+            <h3 class="h5 mb-2">Subscribe to our newsletter</h3>
+            <p class="fs-sm opacity-70">Don’t miss any relevant offers!</p>
+            <form class="form-group w-100">
+              <div class="input-group input-group-sm"><span class="input-group-text"> <i class="fi-mail"></i></span>
+                <input class="form-control" type="text" placeholder="Your email">
+              </div>
+              <button class="btn btn-primary btn-icon btn-sm" type="button"><i class="fi-send"></i></button>
+            </form>
+          </div>
+        </div>
+        <div class="text-center fs-sm pt-4 mt-3 pb-2">&copy; All rights reserved. Made by <a href='https://iainnovations.ph/' class='d-inline-block nav-link p-0' target='_blank' rel='noopener'>IA Innovations</a></div>
+      </div>
+    </footer>
+    <!-- Back to top button--><a class="btn-scroll-top" href="#top" data-scroll><span class="btn-scroll-top-tooltip text-muted fs-sm me-2">Top</span><i class="btn-scroll-top-icon fi-chevron-up">   </i></a>
+    <!-- Vendor scrits: js libraries and plugins-->
+    <script src="vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="vendor/simplebar/dist/simplebar.min.js"></script>
+    <script src="vendor/smooth-scroll/dist/smooth-scroll.polyfills.min.js"></script>
+    <script src="vendor/tiny-slider/dist/min/tiny-slider.js"></script>
+    <!-- Main theme script-->
+    <script src="js/theme.min.js"></script>
+  </body>
+</html>
